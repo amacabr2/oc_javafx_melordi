@@ -19,7 +19,7 @@ public class Melordi extends Application {
 
         Instru instru = new Instru();
         Clavier clavier = new Clavier(instru);
-        ChangeInstru changeInstru = new ChangeInstru();
+        ChangeInstru changeInstru = new ChangeInstru(instru);
 
         root.getChildren().add(clavier);
         root.getChildren().add(changeInstru);

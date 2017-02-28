@@ -6,24 +6,37 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import moteur.Instru;
 
 public class ChangeInstru extends Parent {
 
     private GridPane gridpane;
+    private ToggleGroup groupe;
     private RadioButton rbPiano;
     private RadioButton rbGuitare;
     private RadioButton rbOrgue;
+    private Instru instru;
 
-    public ChangeInstru() {
+    public ChangeInstru(Instru instru) {
 
         gridpane = new GridPane();
+        this.instru = instru;
 
         createImg();
         createBtn();
 
+        groupe.selectedToggleProperty().addListener((observable, oldValue, newValue) -> {
+            if(newValue.equals(rbPiano)) {
+                this.instru.setInstrument(0);
+            } else if (newValue.equals(rbGuitare)) {
+                this.instru.setInstrument(26);
+            } else {
+                this.instru.setInstrument(16);
+            }
+        });
+
         setTranslateX(100);
         setTranslateY(30);
-
         getChildren().add(gridpane);
 
     }
@@ -57,7 +70,7 @@ public class ChangeInstru extends Parent {
      */
     private void createBtn() {
 
-        ToggleGroup groupe = new ToggleGroup();
+        groupe = new ToggleGroup();
 
         rbPiano = new RadioButton();
         rbGuitare = new RadioButton();
