@@ -1,6 +1,8 @@
 package graphisme;
 
 import javafx.scene.Parent;
+import javafx.scene.effect.Light;
+import javafx.scene.effect.Lighting;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -38,6 +40,12 @@ public class Touche extends Parent {
         this.getChildren().add(lettreTouche);//ajout de la lettre de la touche
         this.setTranslateX(positionX);//positionnement de la touche sur le clavier
         this.setTranslateY(positionY);
+
+        Light.Distant light = new Light.Distant();
+        light.setAzimuth(-45.0);
+        Lighting li = new Lighting();
+        li.setLight(light);
+        fondTouche.setEffect(li);
 
     }
 
