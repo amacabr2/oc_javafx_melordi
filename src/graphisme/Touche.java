@@ -47,6 +47,9 @@ public class Touche extends Parent {
         li.setLight(light);
         fondTouche.setEffect(li);
 
+        this.setOnMouseEntered(me -> fondTouche.setFill(Color.LIGHTGREY));
+        this.setOnMouseExited(me -> fondTouche.setFill(Color.WHITE));
+
     }
 
 }
