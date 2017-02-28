@@ -18,7 +18,7 @@ public class Melordi extends Application {
 
         Instru instru = new Instru();
 
-        Clavier clavier = new Clavier();
+        Clavier clavier = new Clavier(instru);
         root.getChildren().add(clavier);
 
         primaryStage.show();

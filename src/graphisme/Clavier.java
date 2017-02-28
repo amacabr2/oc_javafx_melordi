@@ -7,12 +7,16 @@ import javafx.scene.paint.CycleMethod;
 import javafx.scene.paint.LinearGradient;
 import javafx.scene.paint.Stop;
 import javafx.scene.shape.Rectangle;
+import moteur.Instru;
 
 public class Clavier extends Parent{
 
     private Touche[] touches;
+    private Instru instru;
 
-    public Clavier(){
+    public Clavier(Instru instru){
+
+        this.instru = instru;
 
         Rectangle fondClavier = new Rectangle();
         fondClavier.setWidth(400);
@@ -33,14 +37,14 @@ public class Clavier extends Parent{
         fondClavier.setEffect(r);
 
         touches = new Touche[]{
-                new Touche("U",50,20,60),
-                new Touche("I",128,20,62),
-                new Touche("O",206,20,64),
-                new Touche("P",284,20,65),
-                new Touche("J",75,98,67),
-                new Touche("K",153,98,69),
-                new Touche("L",231,98,71),
-                new Touche("M",309,98,72)
+                new Touche("U",50,20,60, instru),
+                new Touche("I",128,20,62, instru),
+                new Touche("O",206,20,64, instru),
+                new Touche("P",284,20,65, instru),
+                new Touche("J",75,98,67, instru),
+                new Touche("K",153,98,69, instru),
+                new Touche("L",231,98,71, instru),
+                new Touche("M",309,98,72, instru)
         };
 
         this.setTranslateX(50);
