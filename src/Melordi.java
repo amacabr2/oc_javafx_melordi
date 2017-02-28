@@ -1,5 +1,6 @@
 import graphisme.ChangeInstru;
 import graphisme.Clavier;
+import graphisme.Metronome;
 import graphisme.Son;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -22,10 +23,12 @@ public class Melordi extends Application {
         Clavier clavier = new Clavier(instru);
         ChangeInstru changeInstru = new ChangeInstru(instru);
         Son son = new Son(clavier);
+        Metronome metronome = new Metronome();
 
         root.getChildren().add(clavier);
         root.getChildren().add(changeInstru);
         root.getChildren().add(son);
+        root.getChildren().add(metronome);
 
         primaryStage.show();
         clavier.requestFocus();
