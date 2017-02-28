@@ -22,6 +22,7 @@ public class Melordi extends Application {
         root.getChildren().add(clavier);
 
         primaryStage.show();
+        clavier.requestFocus();
 
     }
 

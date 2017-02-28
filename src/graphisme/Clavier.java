@@ -54,6 +54,22 @@ public class Clavier extends Parent{
             getChildren().add(touche);
         }
 
+        this.setOnKeyPressed(ke -> {
+            for (Touche touche: touches) {
+                if (touche.lettre.equals(ke.getText().toUpperCase())) {
+                    touche.appuyer();
+                }
+            }
+        });
+
+        this.setOnKeyReleased(ke -> {
+            for (Touche touche: touches) {
+                if (touche.lettre.equals(ke.getText().toUpperCase())) {
+                    touche.relacher();
+                }
+            }
+        });
+
     }
 
 
