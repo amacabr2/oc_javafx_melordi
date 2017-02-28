@@ -1,5 +1,8 @@
 package moteur;
 
+import javafx.beans.property.IntegerPropertyBase;
+import javafx.beans.property.SimpleIntegerProperty;
+
 import javax.sound.midi.MidiChannel;
 import javax.sound.midi.MidiSystem;
 import javax.sound.midi.MidiUnavailableException;
@@ -11,7 +14,7 @@ public class Instru {
 
     private Synthesizer synthesizeur;
     private MidiChannel canal;
-    private int volume;
+    public IntegerPropertyBase volume;
 
     public Instru() {
 
@@ -22,7 +25,7 @@ public class Instru {
             Logger.getLogger(Instru.class.getName()).log(Level.SEVERE, null, e);
         }
 
-        volume = 100;
+        volume = new SimpleIntegerProperty(100);
         canal = synthesizeur.getChannels()[0];
         canal.programChange(0);
 
@@ -44,20 +47,12 @@ public class Instru {
         this.canal = canal;
     }
 
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
     /**
      * Joue la note dont le numéro est en paramètre
      * @param note
      */
     public void noteOn(int note) {
-        canal.noteOn(note, volume);
+        canal.noteOn(note, volume.get());
     }
 
     /**

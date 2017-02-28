@@ -1,5 +1,6 @@
 import graphisme.ChangeInstru;
 import graphisme.Clavier;
+import graphisme.Son;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -20,11 +21,15 @@ public class Melordi extends Application {
         Instru instru = new Instru();
         Clavier clavier = new Clavier(instru);
         ChangeInstru changeInstru = new ChangeInstru(instru);
+        Son son = new Son(clavier);
 
         root.getChildren().add(clavier);
         root.getChildren().add(changeInstru);
+        root.getChildren().add(son);
+
         primaryStage.show();
         clavier.requestFocus();
+        instru.volume.bind(son.slider.valueProperty());
 
     }
 
